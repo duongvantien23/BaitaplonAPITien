@@ -13,8 +13,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // Add services to the container.
 builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
-builder.Services.AddTransient<IQuangCaoBusiness, QuangCaoBusiness>();
-builder.Services.AddTransient<IQuangCaoRepository, QuangCaoRepository>();
+builder.Services.AddTransient<IKhachHangBusiness, KhachHangBusiness>();
+builder.Services.AddTransient<IKhachHangRepository, KhachHangRepository>();
+builder.Services.AddTransient<INhaCungCapBusiness, NhaCungCapBusiness>();
+builder.Services.AddTransient<INhaCungCapResponsitory, NhaCungCapResponsitory>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IUserBusiness, UserBusiness>();
+builder.Services.AddTransient<IHoaDonRepository, HoaDonRepository>();
+builder.Services.AddTransient<IHoaDonBusiness, HoaDonBusiness>();
+builder.Services.AddTransient<ISanPhamResponsitory, SanPhamResponsitory>();
+builder.Services.AddTransient<ISanPhamBusiness, SanPhamBusiness>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -16,18 +16,24 @@ namespace BusinessLayer
         {
             _res = res;
         }
+        public HoaDonModel GetDatabyID(int id)
+        {
+            return _res.GetDatabyID(id);
+        }
         public bool Create(HoaDonModel model)
         {
             return _res.Create(model);
         }
+
         public bool Update(HoaDonModel model)
         {
             return _res.Update(model);
         }
-        public List<HoaDonModel> Search(int page, int pageSize, out long total, string ten_khach, DateTime? fr_NgayTao, DateTime? to_NgayTao)
+
+        public List<HoaDonModel> Search(int pageIndex, int pageSize, out long total, string TenKH, DateTime? fr_NgayTao, DateTime? to_NgayTao)
         {
-            return _res.Search(page, pageSize, out total,  ten_khach,  fr_NgayTao, to_NgayTao);
-        } 
-    
+            return _res.Search(pageIndex, pageSize, out total, TenKH, fr_NgayTao, to_NgayTao);
+        }
+
     }
 }

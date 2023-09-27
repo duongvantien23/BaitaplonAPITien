@@ -9,9 +9,13 @@ namespace DataAccessLayer.Interfaces
 {
     public partial interface IKhachHangRepository
     {
+        bool Create(KhachHangModel khachHang);
+
+        bool Update(KhachHangModel khachHang);
+        bool Delete(int id);
         KhachHangModel GetDatabyID(string id);
-        bool Create(KhachHangModel model);
-        bool Update(KhachHangModel model);
-        public List<KhachHangModel> Search(int pageIndex, int pageSize, out long total, string ten_khach, string dia_chi);
+        List<KhachHangModel> GetDataAll();
+
+        List<KhachHangModel> Search(int pageIndex, int pageSize, out long total, string tenkh, string diachi);
     }
 }

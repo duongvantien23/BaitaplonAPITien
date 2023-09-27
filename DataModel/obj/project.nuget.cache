@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "ueZs6S/WwiN17LNaKZdOXukALGrW4TokoZ0ByedGUIsFIhGrerBoonluX+9NOXuNnm+VXAabMXC2l/UImzwNbQ==",
+  "dgSpecHash": "K0rISOvWT/K2FdZFyrPIhtxTjPIQ8N2M+A1fxlrZ/hIgsKo/8matJM2LBwRKyeHax5dLJ4pZXnHQFcAum+fotg==",
   "success": true,
   "projectFilePath": "D:\\BTL_PTHDV_ASP\\API_BTL\\BTL_VinFoodAPI\\DataModel\\DataModel.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\84399\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.0.0\\microsoft.identitymodel.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\84399\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.0.0\\microsoft.identitymodel.jsonwebtokens.7.0.0.nupkg.sha512",
+    "C:\\Users\\84399\\.nuget\\packages\\microsoft.identitymodel.logging\\7.0.0\\microsoft.identitymodel.logging.7.0.0.nupkg.sha512",
+    "C:\\Users\\84399\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.0.0\\microsoft.identitymodel.tokens.7.0.0.nupkg.sha512",
+    "C:\\Users\\84399\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.0.0\\system.identitymodel.tokens.jwt.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

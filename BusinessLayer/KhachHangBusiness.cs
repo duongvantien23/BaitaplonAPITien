@@ -1,4 +1,5 @@
-﻿using DataAccessLayer.Interfaces;
+﻿using BusinessLayer.Interfaces;
+using DataAccessLayer.Interfaces;
 using DataModel;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    public class KhachHangBusiness
+    public class KhachHangBusiness : IKhachHangBusiness
     {
         private IKhachHangRepository _res;
         public KhachHangBusiness(IKhachHangRepository res)
@@ -19,17 +20,28 @@ namespace BusinessLayer
         {
             return _res.GetDatabyID(id);
         }
+        public List<KhachHangModel> GetDataAll()
+        {
+            return _res.GetDataAll();
+        }
         public bool Create(KhachHangModel model)
         {
             return _res.Create(model);
         }
+
         public bool Update(KhachHangModel model)
         {
             return _res.Update(model);
         }
-        public List<KhachHangModel> Search(int pageIndex, int pageSize, out long total, string ten_khach, string dia_chi)
+
+        public bool Delete(int id)
         {
-            return _res.Search(pageIndex, pageSize, out total, ten_khach, dia_chi);
+            return _res.Delete(id);
+        }
+
+        public List<KhachHangModel> Search(int pageIndex, int pageSize, out long total, string tenkh, string diachi)
+        {
+            return _res.Search(pageIndex, pageSize, out total, tenkh, diachi);
         }
     }
 }

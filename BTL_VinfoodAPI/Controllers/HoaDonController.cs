@@ -14,22 +14,31 @@ namespace BTL_VinfoodAPI.Controllers
         {
             _hoadonBusiness = hoadonBusiness;
         }
+        [Route("get-by-id/{id}")]
+        [HttpGet]
+        public HoaDonModel GetDatabyID(int id)
+        {
+            return _hoadonBusiness.GetDatabyID(id);
+        }
 
         [Route("create-hoadon")]
         [HttpPost]
-        public HoaDonModel CreateItem([FromBody] HoaDonModel model)
+        public HoaDonModel CreateHoaDon([FromBody] HoaDonModel model)
         {
             _hoadonBusiness.Create(model);
             return model;
         }
+
+
         [Route("update-hoadon")]
         [HttpPost]
-        public HoaDonModel Update([FromBody] HoaDonModel model)
+        public HoaDonModel UpdateHoaDon([FromBody] HoaDonModel model)
         {
             _hoadonBusiness.Update(model);
             return model;
         }
-        [Route("search")]
+
+        [Route("search-hoadon")]
         [HttpPost]
         public IActionResult Search([FromBody] Dictionary<string, object> formData)
         {
@@ -37,8 +46,8 @@ namespace BTL_VinfoodAPI.Controllers
             {
                 var page = int.Parse(formData["page"].ToString());
                 var pageSize = int.Parse(formData["pageSize"].ToString());
-                string ten_khach = "";
-                if (formData.Keys.Contains("ten_khach") && !string.IsNullOrEmpty(Convert.ToString(formData["ten_khach"]))) { ten_khach = Convert.ToString(formData["ten_khach"]); }
+                string TenKH = "";
+                if (formData.Keys.Contains("TenKH") && !string.IsNullOrEmpty(Convert.ToString(formData["TenKH"]))) { TenKH = Convert.ToString(formData["TenKH"]); }
                 DateTime? fr_NgayTao = null;
                 if (formData.Keys.Contains("fr_NgayTao") && formData["fr_NgayTao"] != null && formData["fr_NgayTao"].ToString() != "")
                 {
@@ -52,16 +61,16 @@ namespace BTL_VinfoodAPI.Controllers
                     to_NgayTao = new DateTime(dt.Year, dt.Month, dt.Day, 23, 59, 59, 999);
                 }
                 long total = 0;
-                var data = _hoadonBusiness.Search(page, pageSize, out total, ten_khach, fr_NgayTao, to_NgayTao);
+                var data = _hoadonBusiness.Search(page, pageSize, out total, TenKH, fr_NgayTao, to_NgayTao);
                 return Ok(
-                    new
-                    {
-                        TotalItems = total,
-                        Data = data,
-                        Page = page,
-                        PageSize = pageSize
-                    }
-                    );
+                   new
+                   {
+                       TotalItems = total,
+                       Data = data,
+                       Page = page,
+                       PageSize = pageSize
+                   }
+                   );
             }
             catch (Exception ex)
             {
